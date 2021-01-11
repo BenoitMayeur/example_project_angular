@@ -1,0 +1,47 @@
+<div class="container">
+  <h1 *ngIf='idArticle === 0'>Ajouter un nouvel article</h1>
+  <h1 *ngIf='idArticle !== 0'>Mettre à jour un article</h1>
+  <form [formGroup]='articleForm' *ngIf="articleForm">
+    <div>
+      <label for="title">
+        Titre
+      </label><br>
+      <input class="inputTitle" type="text" formControlName="title" placeholder="Titre"><br>
+    </div>
+    <div>
+      <label for="content">
+        Contenu
+      </label><br>
+
+      <ckeditor [editor]="Editor" [config]="{ toolbar: [ 'heading', '|', 'bold', 'italic', 'fontColor' ] }" formControlName="content" (ready)="onReady($event)"></ckeditor>
+
+    </div>
+    <div>
+      <label for="date">
+        Date
+      </label><br>
+      <input type='date' formControlName="date">
+    </div>
+    <div *ngIf="!authentificationService.isEditor()">
+      <input type="checkbox" name="publishable" formControlName="publishable" />
+      <label name="publishable">Demander publication</label>
+    </div>
+
+    <div class="divImage">
+      <img [src]="imageSrc" *ngIf="imageSrc != urlAPI + 'images/'" class="imgDisplayed"><br>
+    </div>
+    <div class="srcImage">
+      <input type='file' #filefield (change)="onFileChange($event)" formControlName="image">
+
+    </div>
+
+    <button (click)='addArticle()' *ngIf='idArticle === 0' [disabled]='articleForm.invalid'>Ajouter</button>
+    <div *ngIf='idArticle !== 0' class="div_buttons_update">
+      <button (click)='deleteArticle()' class="deleteButton">Supprimer article</button>
+      <button (click)='updateArticle()' class="updateButton">Mettre à jour</button>
+      <button *ngIf="authentificationService.isEditor() && article.published === false" (click)='publishArticle()' class="updateButton">Publier l'article</button>
+      <button *ngIf="authentificationService.isEditor() && article.published" (click)='publishArticle()' class="updateButton">Dépublier l'article</button>
+    </div>
+
+  </form>
+</div>

@@ -1,0 +1,23 @@
+table, tr, th, td{
+    border: solid black 1px;
+}
+
+th{
+    background-color: green;
+    color: white
+}
+
+tr:nth-child(odd){background: rgb(164, 240, 164);}
+
+th, td{
+    width: 7rem;
+    text-align: center;
+}
+
+.divListUsers{
+    margin-top: 2rem;
+}
+
+.divOneUser{
+    margin-top: 0.5rem;
+}

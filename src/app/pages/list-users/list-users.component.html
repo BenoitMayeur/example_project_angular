@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="divListUsers">
+    <h1>Liste des utilisateurs</h1>
+    <div *ngIf="listUsers.length === 0; else tableShowed">
+      Il n'y a pas d'utilisateurs.
+    </div>
+    <ng-template #tableShowed>
+      <table>
+        <tr>
+          <th>Utilisateurs</th>
+          <th>Roles</th>
+          <th>Adresses email</th>
+          <th></th>
+        </tr>
+        <tr *ngFor='let user of listUsers' class="divOneUser">
+          <td>
+            {{user.username}}
+          </td>
+          <td>
+            {{user.role | lowercase}}
+          </td>
+          <td>
+            {{user.email}}
+          </td>
+          <td>
+            <a [routerLink]="['/', 'add-user', user.id]">Modifier</a>
+          </td>
+        </tr>
+      </table>
+    </ng-template>
+    
+  </div>
+</div>
+

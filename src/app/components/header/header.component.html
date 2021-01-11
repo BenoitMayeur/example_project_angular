@@ -1,0 +1,55 @@
+<header>
+  <div class="container">
+    <div class="divHeader">
+      <div class="divImage">
+        <a class="routerLink" routerLink="/list-articles">
+          <img class="logo" src='../../../assets/logo.png'>
+        </a>
+        <div class="buttonHamburger" (click)="showMenu()">
+          <div class="lineMenuHamburger"></div>
+          <div class="lineMenuHamburger"></div>
+          <div class="lineMenuHamburger"></div>
+        </div>
+      </div>
+      <div class="collapse navbar-collapse show divNav">
+        <nav>
+          <ul class="">
+            <li class="nav-item"><a class="routerLink" routerLink="/list-articles">Liste des
+                articles</a></li>
+            <li class="nav-item" *ngIf="authentificationService.isEditor()"><a class="routerLink" routerLink="/list-users">Liste des
+                utilisateurs</a></li>
+            <li class="nav-item" *ngIf="authentificationService.isEditor()"><a class="routerLink"
+                [routerLink]="['/', 'add-user', 0]">Ajouter
+                utilisateur</a></li>
+            <li class="nav-item" *ngIf="authentificationService.isEditor() || (authentificationService.isAuthor() && !userBanned)">
+              <a class="routerLink" [routerLink]="['/', 'add-article', 0]">
+                Ajouter article
+              </a>
+            </li>
+  
+            <li class="nav-item" *ngIf="authentificationService.isNotLogged()"><a routerLink="" class="linkLogIn">Log in</a>
+            </li>
+            <li class="nav-item" *ngIf="authentificationService.isLogged()" (click)='logout()' class="linkLogOut">Logout</li>
+            <li class="nav-item" *ngIf="authentificationService.isLogged()" (click)='logoutGoogle()' class="linkLogOut">Logout Google</li>
+            <li class="nav-item" *ngIf="authentificationService.isNotLogged()"><a [routerLink]="['sign-up']" class="linkSignUp">Sign Up</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<div class="container">
+  <p class="welcomingText" *ngIf='authentificationService.isLogged()'>
+    Bonjour {{username}}!<br>
+    Tu es enregistré comme {{userrole}}<span *ngIf="userBanned"> banni.<br>Tu ne peux plus poster de nouveaux
+      articles</span>.<br>
+    <a [routerLink]="['/', 'add-user', iduser]">Modifier données</a>
+  </p>
+
+</div>

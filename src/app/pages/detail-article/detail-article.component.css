@@ -1,0 +1,30 @@
+h1{
+    font-size: 1.6rem;
+}
+
+h2{
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+p{
+    color: red;
+}
+
+:host ::ng-deep p { 
+    background-color: blue;
+  }
+
+.divImage{
+    display: flex;
+    justify-content: center;
+}
+
+.imgOneArticle{
+    width: 30%;
+}
+
+.divMainOneArticle{
+    margin-top: 2rem;
+    min-height: 60vh;
+}

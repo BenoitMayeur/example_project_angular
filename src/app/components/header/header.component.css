@@ -1,0 +1,108 @@
+header{
+    background-color: green;
+    min-height: 5rem;
+    display: flex;
+    align-items: center;
+
+}
+
+ul{
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+li{
+    list-style-type: none;
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+li a, .linkLogOut{
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.logo{
+    width: 3rem;
+    height: auto;
+    border-radius: 2px;
+}
+
+.lineMenuHamburger{
+    width: 2.5rem;
+    height: 0.3rem;
+    background-color: white;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    border-radius: 2px;
+}
+
+.linkLogIn{
+    background-color: blueviolet;
+    padding: 0 1rem;
+}
+
+.linkLogOut:hover{
+    color: red;
+}
+
+.linkLogOut{
+    background-color: black;
+    padding: 0 1rem;
+}
+
+.linkSignUp{
+    background-color: rgb(60, 255, 0);
+    padding: 0 1rem;
+}
+
+.welcomingText{
+    margin: 2rem;
+    text-align: right;
+}
+
+.burgerMenu{
+    display: none;
+}
+
+
+.divImage{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90vw;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+@media only screen and (min-width: 768px) {
+
+    nav{
+        margin-top: 1rem;
+    }
+    
+    ul{
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .buttonHamburger{
+        display: none;
+    }
+
+    .divImage{
+        width: 10rem;
+    }
+
+    .divHeader{
+        display: flex;
+    }
+
+    .divNav{
+        display: inline;
+    }
+}

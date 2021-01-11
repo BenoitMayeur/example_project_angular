@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="divListArticles">
+    <div *ngIf="listArticles.length === 0; else tableShowed">
+      Il n'y a pas d'articles.
+    </div>
+    <ng-template #tableShowed>
+      <div *ngFor='let article of listArticles'>
+        <div class="divOneArticle" *ngIf='this.authentificationService.isEditor() || (this.authentificationService.whatIsTheUserId() === article.author.id)|| article.published'>
+          <div class="row">
+            <div class="col-12 col-md-3">
+              <div class="divImage">
+                <img [src]="'http://localhost:3000/images/'+ article.image?.name" class="imgOneArticle">
+              </div>
+            </div>
+            <div class="col-12 col-md-9">
+              <div class="divTextArticle">
+                <h2><a [routerLink]="['/', 'article', article.id]">{{article.title}}</a></h2>
+                <h3>{{article.date | date: 'dd/MM/yyyy'}} - Par {{article.author.username}}</h3>
+                <div *ngIf='this.authentificationService.isEditor() || (this.authentificationService.whatIsTheUserId() === article.author.id)'>
+                  <span *ngIf='article.publishable && !article.published' class="messageNotPublished">En attente d'un avis</span><br>
+                  <span *ngIf='article.published' class="messagePublished">Publié</span>
+                  <span *ngIf='!article.published' class="messageNotPublished">Non publié</span>
+                </div>
+                <span *ngIf='this.authentificationService.isEditor() || (this.authentificationService.whatIsTheUserId() === article.author.id && !this.article.published)'>
+                  Publishable: {{article.publishable}}<br>
+                </span>
+                <span *ngIf='this.authentificationService.isEditor() || (this.authentificationService.whatIsTheUserId() === article.author.id && !this.article.published)'>
+                  Published: {{article.published}}
+                </span>
+              </div>
+    
+              <div [innerHtml]='article.content'>
+                {{article.content | shortentext}}
+              </div>
+            </div>
+
+            <div class="col-12" *ngIf='this.authentificationService.isEditor() || (this.authentificationService.whatIsTheUserId() === article.author.id && !this.article.published)'>
+              <div class="divUpdateButton">
+                <a [routerLink]="['/', 'add-article', article.id, article.author.id]">Modifier</a>
+              </div>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    
+  </div>
+</div>

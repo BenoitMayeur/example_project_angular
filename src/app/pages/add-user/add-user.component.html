@@ -1,0 +1,32 @@
+<div class="container">
+  <h1 *ngIf='idUser === 0'>Ajouter un nouvel utilisateur</h1>
+  <h1 *ngIf='idUser !== 0'>Mettre à jour un utilisateur</h1>
+  <form [formGroup]='userForm' *ngIf="userForm">
+    <input type="text" formControlName="username" placeholder="Nom d'utilisateur">
+    <input type="password" formControlName="password" placeholder="Mot de passe">
+    <input type="text" formControlName="firstname" maxlength="30" placeholder="Prénom">
+    <input type="text" formControlName="lastname" maxlength="30" placeholder="Nom de famille">
+    <div class="divEmail">
+      <input type="text" formControlName="email" placeholder="Email">
+    </div>
+    <textarea class="textareaDescription" formControlName="description" placeholder="Description"></textarea><br>
+
+
+    <div *ngIf="authentificationService.isEditor()" class="divRole">
+
+      <select formControlName="role">
+        <option value="AUTHOR">Auteur</option>
+        <option value="EDITOR">Editeur</option>
+        <option value="USER">Utilisateur</option>
+      </select>
+    </div>
+
+    <button (click)='addUser()' *ngIf='idUser === 0' [disabled]='userForm.invalid'>Ajouter</button>
+    <div *ngIf='idUser !== 0' class="div_buttons">
+      <button (click)='deleteUser()' class="deleteButton">Supprimer</button>
+      <button *ngIf="authentificationService.isEditor()" (click)='banUser()' class="deleteButton">Bannir</button>
+      <button (click)='updateUser()' class="updateButton">Mettre à jour</button>
+    </div>
+
+  </form>
+</div>

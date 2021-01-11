@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="divForm">
+    <h1>Se connecter</h1>
+    <form [formGroup]='userForm'>
+      <input type="text" formControlName="username" placeholder="Nom d'utilisateur">
+      <input type="password" formControlName="password" placeholder="Mot de passe">
+      <button (click)='loginStarted()' [disabled]='userForm.invalid'>Soumettre</button>
+      <div *ngIf='showErrorMessage'>
+        <p class="errorMessage">
+          {{errorMessage}}
+        </p>
+      </div>
+    </form>
+
+  </div>
+  <div class="divGoogle">
+    <p>
+      Se connecter avec <a href='http://localhost:3000/google'>Google</a>
+    </p>
+  </div>
+
+</div>

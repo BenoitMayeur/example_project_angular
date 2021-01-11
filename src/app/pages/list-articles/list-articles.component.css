@@ -1,0 +1,49 @@
+h2{
+    font-size: 1.5rem;
+}
+
+h2:after{
+    content:' ';
+    display:block;
+    border:1px solid rgb(173, 173, 173);
+}
+h3{
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+.divListArticles{
+    margin-top: 2rem;
+}
+
+.divUpdateButton{
+    display: flex;
+    justify-content: flex-end;
+    margin: 2rem;
+}
+
+.messagePublished{
+    color: green;
+    font-weight: bold;
+}
+
+.messageNotPublished{
+    color: red;
+    font-weight: bold;
+}
+
+.imgOneArticle{
+    width: 50%;
+    border-radius: 10px;
+}
+
+.divImage{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.divOneArticle{
+    margin-bottom: 2rem;
+
+}

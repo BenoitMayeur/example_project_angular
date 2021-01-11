@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Bienvenu sur notre site !</h1>
+  <p>
+    Pour pouvoir poster des articles, vous devez d'abord vous inscrire.
+  </p>
+  <div class="divForm">
+    <form [formGroup]='userForm' *ngIf="userForm">
+      <input type="text" formControlName="username" placeholder="Nom d'utilisateur">
+      <input type="password" formControlName="password" placeholder="Mot de passe">
+      <input type="password" formControlName="password2" placeholder="Répéter le mot de passe">
+      <input type="text" formControlName="email" placeholder="Email">
+  
+      <button (click)='addUser()' [disabled]='userForm.invalid'>M'inscrire</button>
+      <p *ngIf='visible' class="erorMessage">
+        Les deux mots de passe ne correspondent pas.
+      </p>
+    </form>
+  </div>
+</div>

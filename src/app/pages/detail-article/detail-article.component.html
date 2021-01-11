@@ -1,0 +1,16 @@
+
+  <div class="container">
+    
+    <div *ngIf='articleToDisplay' class="divMainOneArticle">
+      <div class="divImage">
+        <img [src]="'http://localhost:3000/images/'+ articleToDisplay.image?.name" class="imgOneArticle">
+      </div>
+
+      <h1>{{articleToDisplay.title}}</h1>
+      <h2>{{articleToDisplay.date | date: 'dd/MM/yyyy'}}, by {{articleToDisplay.author.username}}</h2>
+      <div [innerHtml]='articleToDisplay.content'>
+        {{articleToDisplay.content}}
+      </div>
+    </div>
+  </div>
+

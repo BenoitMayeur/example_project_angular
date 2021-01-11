@@ -1,0 +1,36 @@
+footer{
+    background-color: green;
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    color: white;
+}
+
+.f_list_icon{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 1.8rem;
+}
+
+.f_div_one_icon{
+    width: 1.8rem;
+}
+
+.a_icon{
+    color: white;
+    font-size: 1.5rem;
+
+}
+
+.a_icon:hover{
+    color: black;
+    font-size: 1.8rem;
+}
+
+p{
+    font-weight: bold;
+}
+

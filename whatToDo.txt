@@ -1,0 +1,13 @@
+
+OK    Un utilisateur peut s'inscrire via un formulaire d'inscription(login , mot de passe, email)
+OK    Un éditeur pourra promouvoir un utilisateur en auteur
+OK    Un auteur possèdera des informations supplémentaires (présentation, nom , prénom, banni/pas banni)
+OK    Un article comprendra un titre, un contenu, une date de publication, publié/non publié, publiable/pas publiable
+OK    Un auteur pourra modifier ses informations personnelles et ses articles
+OK    et rendre un article publiable/non-publiable
+OK    Un article publiable sera alors soumis à l'approbation de l'éditeur
+OK    Un éditeur pourra publier ou dépublier un article publiable 
+OK    Un éditeur pourra bannir ou débannir un auteur
+OK    Un auteur banni conservera ses droits d'utilisateur normal (auteur maudit) et ses articles seront conservés
+OK    un éditeur devra pouvoir facilement bannir ou débannir un auteur sans que ses informations ne soient altérées (l'auteur banni aura les droits d'un utilisateur simple)
+
